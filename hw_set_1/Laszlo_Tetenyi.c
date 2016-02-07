@@ -1,3 +1,7 @@
+/*Homework 1 
+* Laszlo Tetenyi n14167755
+* Bias in the OLS estimate
+*/ 
 #include <stdio.h>
 #include <math.h>
 #include <gsl/gsl_rng.h>
