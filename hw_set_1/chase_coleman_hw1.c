@@ -37,11 +37,11 @@ void simulatex(double alpha, double beta, double sig, int simlength, double *x)
 
     /* Declare types */
     double w;
-    int t = 1;
+    int t;
 
     /* Begin at stationary mean */
     x[0] = beta / (1-alpha);
-    for(int t=1; t<simlength; t++){
+    for(t=1; t<simlength; t++){
         w = gsl_ran_gaussian(r, 1.0);
         x[t] = alpha*x[t-1] + beta + sig*w;
     }
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
     /* Print problem description */
     printf("Consider process described by (alpha, beta, sigma) = (%0.2f, %0.2f, %0.2f)\n", alpha, beta, sig);
     printf("We will show that the OLS estimate of alpha is biased downward\n");
-    printf("by generating a table of regressions for various numbers of simulations.\n");
+    printf("by generating a table of regressions for various numbers of simulations.\n\n");
 
     /* Start clock and run simulation */
     start = clock();
@@ -115,8 +115,8 @@ int main(int argc, char *argv[])
     time_used = ((double) end - start) / CLOCKS_PER_SEC;
 
     /* Print finishing messages */
-    printf("\n\n\n");
-    printf("Computation took %0.4f", time_used);
+    printf("\n\n");
+    printf("Computation took %0.4f seconds\n", time_used);
 
     return 0;
 }
