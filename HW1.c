@@ -19,8 +19,8 @@ double ar1_ts (double * params, int n, unsigned long int seed)
     gsl_rng_set(r, seed);
 
     int i;
-    double x = beta + (alpha * (beta / (1 - alpha))) + gsl_ran_gaussian(r, s);
-    double x_minus = beta / (1 - alpha);  // Start at mean of stationary dist
+    double x_minus = beta / (1 - alpha);
+    double x = 0;
     double sum_x = 0;  
     double sum_x_minus = 0;
     double x_minus_sqr = x_minus * x_minus;
@@ -32,8 +32,8 @@ double ar1_ts (double * params, int n, unsigned long int seed)
     double mean_x_minus_sqr;
     for (i = 1; i <= n; i++) {
         
-         x = beta + alpha * x_minus + gsl_ran_gaussian(r, s);
-         x = x_minus;        
+         x_minus = x;
+         x = beta + alpha * x + gsl_ran_gaussian(r, s); 
          sum_x += x;
          sum_x_minus += x_minus;
          sum_x_minus_sqr = x_minus_sqr;
@@ -55,7 +55,7 @@ int main(void)
     clock_t start, end;
     double cpu_time_used;
 
-    int N = 10;
+    int N = 10000;
     double beta = 1.0;
     double alpha = 0.9;
     double s = 1;
