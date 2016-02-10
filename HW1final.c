@@ -53,12 +53,12 @@ int main()
   double sum_alpha_hat = 0;
   double mean_alpha_hat;
   int i;
-  int n = 4;
+  int n = 20;
   for (i = 1; i <= n; i++) {
     clock_t start, end;
     double cpu_time_used;
 
-    int N = 10000000;
+    int N = 1000;
     double beta = 1.0;
     double alpha = 0.9;
     double s = 1;
