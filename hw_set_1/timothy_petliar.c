@@ -30,6 +30,8 @@ double ar1_ts (double * params, int n, unsigned long int seed)
     double alpha_est;
     for (k=1; k<=20; k++) {
     /* create a generator chosen by the environment variable GSL_RNG_TYPE with 20 different seeds */
+   
+   
     const gsl_rng_type * T;
     gsl_rng * r;
     gsl_rng_env_setup();
