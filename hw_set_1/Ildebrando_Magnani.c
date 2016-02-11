@@ -11,7 +11,10 @@
 * The program runs 100 different AR1 simulations and estimates the alpha
 * coefficient (called alpha_hat) 100 different times. Hence, it takes the average
 * of these 100 estimates of alpha and displays it as "evidence" of the
-* downward bias (which shows up on average).
+* downward bias (which shows up on average); i.e. some alpha_hat estimates
+* will be above the true value, some others will be below. Nonetheless, the average
+* estimate will converge towards a downward biased result, as expected.
+*
 */
 
 
@@ -82,7 +85,7 @@ int main(void)          /* main function that runs the AR1 simulation and correl
     clock_t start, end;       
     double cpu_time_used;
     
-    int N = 200;             /* number of AR1 observations */ 
+    int N = 2000;             /* number of AR1 observations */ 
     start = clock();
     
     double alpha_hat = ar1_ts(params, N, i);                  
