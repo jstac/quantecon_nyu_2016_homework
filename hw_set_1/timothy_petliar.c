@@ -28,9 +28,9 @@ double ar1_ts (double * params, int n, unsigned long int seed)
     double l_alpha_est_sum=0;//sum of smaller sample estimate over all seeds
     double l_alpha_est;
     double alpha_est;
+    
     for (k=1; k<=20; k++) {
     /* create a generator chosen by the environment variable GSL_RNG_TYPE with 20 different seeds */
-   
    
     const gsl_rng_type * T;
     gsl_rng * r;
