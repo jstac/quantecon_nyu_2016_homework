@@ -1,0 +1,7 @@
+# Don't watch ipynb checkpoints
+*.ipynb_checkpoints
+
+# Don't watch .pyc
+*.pyc
+*.pyx
+
